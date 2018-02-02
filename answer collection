@@ -1,0 +1,50 @@
+
+importjava.util.EmptyStackException;
+
+public class Stack {
+
+privateintarr[];
+privateint size;
+privateint index = 0;
+
+public Stack(int size) {
+this.size = size;
+arr = new int[size];
+    }
+
+public void push(int element) {
+
+if (isFull()) {
+throw new StackOverflowError("Stack is full");
+        }
+
+arr[index] = element;
+index++;
+    }
+
+publicint pop() {
+
+if (isEmpty()) {
+throw new EmptyStackException();
+        }
+returnarr[--index];
+    }
+
+publicbooleanisEmpty() {
+if (index == 0) {
+return true;
+        }
+return false;
+    }
+
+publicbooleanisFull() {
+if (index == size) {
+return true;
+        }
+return false;
+    }
+
+publicint size() {
+return index;
+    }
+}
