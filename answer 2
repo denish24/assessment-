@@ -1,0 +1,60 @@
+importjava.util.Stack;
+	
+	
+	publicclassSortStack {
+	    publicstaticStack<Integer>sort(Stack<Integer>s) {
+	        if (s.isEmpty()) {
+	            return s;
+	        }
+	        int pivot =q.dequeue();
+	
+	
+	        Stack<Integer> left =newStack<Integer>();
+	        Stack<Integer> right =newStack<Integer>();
+	        while (!s.isEmpty()) {
+	            int y =q.dequeue();
+	            if (y < pivot) {
+	                left.enqueue(y);
+	            } else {
+	                right.enqueue(y);
+	            }
+	        }
+	        sort(left);
+	        sort(right);
+	
+	
+	        Stack<Integer>tmp=newStack<Integer>();
+	        while (!right.isEmpty()) {
+	            tmp.enqueue(right.pop());
+	        }
+	        tmp.push(pivot);
+	        while (!left.isEmpty()) {
+	            tmp.enqueue(left.pop());
+	        }
+	        while (!tmp.isEmpty()) {
+	            q.enqueue(tmp.pop());
+	        }
+	
+	        return s;
+	    }
+	    
+	    publicstaticvoidmain(String[] args) {
+	        Stack<Integer> s =newStack<Integer>();
+	        q.enqueue(17);
+	        q.enqueue(42);
+	        q.enqueue(88);
+	
+	
+	        
+	        for (inti=0; i<stack.size(); i++) {
+	            System.out.println(stack.get(i));
+	        }
+	        System.out.println();
+	        
+	        Stack<Integer>sortedStack= sort(stack);
+	        for (inti=0; i<sortedStack.size(); i++) {
+	            System.out.println(sortedStack.get(i));
+	        }
+	        System.out.println();
+	    } 
+
